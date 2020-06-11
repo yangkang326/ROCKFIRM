@@ -4,9 +4,82 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ROCKFIRM"
+        xmlns:WPF="clr-namespace:HslControls.WPF;assembly=HslControls"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="ROCK_FIRM" MinWidth="1000" MinHeight="800"  >
+    <Window.Background>
+        <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.MenuBarColorKey}}"/>
+    </Window.Background>
+    <Grid Name="_grid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="600*"/>
+            <RowDefinition Height="270*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="1"  Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid>
+                <Ellipse Margin="0" Stroke="Black" StrokeThickness="5" HorizontalAlignment="Center" VerticalAlignment="Center" Width="250" Height="250" />
+                <Rectangle Name ="d0"  Fill="Black" HorizontalAlignment="Center" Height="3" Margin="0" Stroke="Black" VerticalAlignment="Center" Width="180" OpacityMask="Black"/>
+                <Rectangle Name ="d15" Fill="Black" HorizontalAlignment="Center" Height="3" Margin="0,30,0,0" Stroke="Black" VerticalAlignment="Center" Width="100" OpacityMask="Black"/>
+                <Rectangle Name ="d30" Fill="Black" HorizontalAlignment="Center" Height="3" Margin="0,60,0,0" Stroke="Black" VerticalAlignment="Center" Width="80" OpacityMask="Black"/>
+                <Rectangle Name ="d60" Fill="Black" HorizontalAlignment="Center" Height="3" Margin="0,120,0,0" Stroke="Black" VerticalAlignment="Center" Width="60" OpacityMask="Black"/>
+                <Rectangle Name ="d90" Fill="Black" HorizontalAlignment="Center" Height="3" Margin="0,180,0,0" Stroke="Black" VerticalAlignment="Center" Width="40" OpacityMask="Black"/>
+                <Rectangle Name ="d_15" Fill="Black" HorizontalAlignment="Center" Height="3" Margin="0,-30,0,0" Stroke="Black" VerticalAlignment="Center" Width="100" OpacityMask="Black" />
+                <Rectangle Name ="d_30" Fill="Black" HorizontalAlignment="Center" Height="3" Margin="0,-60,0,0" Stroke="Black" VerticalAlignment="Center" Width="80" OpacityMask="Black"/>
+                <Rectangle Name ="d_60" Fill="Black" HorizontalAlignment="Center" Height="3" Margin="0,-120,0,0" Stroke="Black" VerticalAlignment="Center" Width="60" OpacityMask="Black"/>
+                <Rectangle Name ="d_90" Fill="Black" HorizontalAlignment="Center" Height="3" Margin="0,-180,0,0" Stroke="Black" VerticalAlignment="Center" Width="40" OpacityMask="Black"/>
+                <Rectangle Fill="Black" HorizontalAlignment="Center" Margin="0,-160,0,0" Stroke="Black" VerticalAlignment="Center" OpacityMask="Black"/>
+                <Rectangle  Fill="#FFFF0606" x:Name="status" HorizontalAlignment="Center" Height="8" Stroke="#FFFF0606" VerticalAlignment="Center" Width="220" OpacityMask="#FFFF0606" RenderTransformOrigin="0.5,0.5" Margin="0"/>
+               
+                <TextBlock HorizontalAlignment="Center" Margin="0,0,226,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Center" RenderTransformOrigin="0.444,1.575"/>
+                <TextBlock HorizontalAlignment="Center" Margin="0,30,140,0" TextWrapping="Wrap" Text="-15" VerticalAlignment="Center" RenderTransformOrigin="0.444,1.575"/>
+                <TextBlock HorizontalAlignment="Center" Margin="0,-30,140,0" TextWrapping="Wrap" Text="15" VerticalAlignment="Center" RenderTransformOrigin="0.444,1.575"/>
+                <TextBlock HorizontalAlignment="Center" Margin="0,60,110,0" TextWrapping="Wrap" Text="-30" VerticalAlignment="Center" RenderTransformOrigin="0.444,1.575"/>
+                <TextBlock HorizontalAlignment="Center" Margin="0,-60,110,0" TextWrapping="Wrap" Text="30" VerticalAlignment="Center" RenderTransformOrigin="0.444,1.575"/>
+                <TextBlock HorizontalAlignment="Center" Margin="0,120,90,0" TextWrapping="Wrap" Text="-60" VerticalAlignment="Center" RenderTransformOrigin="0.444,1.575"/>
+                <TextBlock HorizontalAlignment="Center" Margin="0,-120,90,0" TextWrapping="Wrap" Text="60" VerticalAlignment="Center" RenderTransformOrigin="0.444,1.575"/>
+                <TextBlock HorizontalAlignment="Center" Margin="0,180,70,0" TextWrapping="Wrap" Text="-90" VerticalAlignment="Center" RenderTransformOrigin="0.444,1.575"/>
+                <TextBlock HorizontalAlignment="Center" Margin="0,-180,70,0" TextWrapping="Wrap" Text="90" VerticalAlignment="Center" RenderTransformOrigin="0.444,1.575"/>
+            </Grid>
+            <WPF:HslCurve Name="dataline" MinWidth="200" Grid.Column="2" Margin="10" FontSize="14"  />
+        </Grid>
+        <Grid Grid.Row="2" Grid.ColumnSpan="2" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Label Content="翻滚角：" Grid.Column="0" Margin="5,0,0,0" VerticalAlignment="Center"/>
+            <TextBlock Text="XX.XX" Name="fgd" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Label Content="翻滚角：" Grid.Column="2" Margin="30,0,0,0" VerticalAlignment="Center"/>
+            <TextBlock Text="XX.XX：" Name="fyd" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <StackPanel Orientation="Horizontal" Grid.Column="4" Margin="30,0,0,0">
+                <TextBlock VerticalAlignment="Center" Margin="5"><Run Text="链接状态"/><Run Text="："/><Run Text="倾角采集器，LED控制器"/></TextBlock>
+                <WPF:HslIndicator Name="com1" Height="30" Content="倾角采集器" Margin="5"/>
+                <WPF:HslIndicator Name="com2" Height="30" Content="LED控制器" Margin="5" FontSize="6"/>
+                <Button Content="连接控制器" Name="conmodbus" Click="connect_modbus" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <StackPanel Orientation="Horizontal" Margin="150,0,0,0">
+                    <Label Content="LED照明灯" VerticalAlignment="Center"/>
+                    <Button  Name="led1_status" Height="20"  Content="关" Background="IndianRed" Width="60" Click="led1_status_Click" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="LED照明灯" VerticalAlignment="Center"/>
+                    <Button  Name="led2_status" Height="20"  Content="关" Background="IndianRed" Width="60" Click="led2_status_Click" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+        <local:IPCAMPLAYER x:Name="control1"/>
+        <local:IPCAMPLAYER x:Name="control2" Grid.Column="1"/>
     </Grid>
 </Window>
