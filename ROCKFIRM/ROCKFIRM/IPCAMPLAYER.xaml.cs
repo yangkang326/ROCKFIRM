@@ -25,6 +25,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Vlc.DotNet.Core;
 using Vlc.DotNet.Forms;
+using System.Windows.Markup;
+using Button = System.Windows.Controls.Button;
 
 namespace ROCKFIRM
 {
@@ -56,6 +58,7 @@ namespace ROCKFIRM
         private bool yorn;
 
         private string iptemp;
+		int posr, posc, gridindex;
         public IPCAMPLAYER()
         {
 			InitializeComponent();
@@ -70,13 +73,13 @@ namespace ROCKFIRM
 		private void Button_Click(object sender, RoutedEventArgs e)
 		{
 			iptemp = address.Text;
-			th1 = new Thread(new ThreadStart(connectipcamera));
+			th1 = new Thread(new ThreadStart(contipcamera));
 			th1.Start();
+
 		}
 
-		private void connectipcamera()
-		{
-
+		private void contipcamera()
+        {
 			try
 			{
 				Device.DeviceClient deviceClient = GetDeviceClient(iptemp);
@@ -98,14 +101,16 @@ namespace ROCKFIRM
 								combobox.Items.Add(p.Name);
 						}
 					}
-
 				}
 			}
 			catch
-			{ }
+			{
+				th1.Suspend();
+			}
 			combobox.SelectionChanged += new SelectionChangedEventHandler(listBox_SelectionChanged);
-			th1.Suspend();
+			
 		}
+
 
 		private void listBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
 		{
@@ -306,8 +311,8 @@ namespace ROCKFIRM
 			string path = System.DateTime.Now.ToString("yyyy-MM-dd") + "-" + System.DateTime.Now.ToString("hh-mm-ss") + ".ts";
 			string str = System.IO.Path.Combine(svpath, path);
 			mediaplayer = new VlcMediaPlayer(vlcLibDirectory);
-			bool isPlaying = control.IsPlaying;
-			if (isPlaying)
+			bool isPlaying = control.IsPlaying; ;
+			while (isPlaying)
 			{
 				string[] options = new string[]
 				{
@@ -324,6 +329,7 @@ namespace ROCKFIRM
 				{
 					th.Interrupt();
 				}
+				isPlaying = control.IsPlaying;
 			}
 			mediaplayer.Stop();
 			th.Interrupt();
@@ -334,5 +340,52 @@ namespace ROCKFIRM
 			yorn = false;
 			mediaplayer.Stop();
 		}
-	}
+
+        private void UserControl_Unloaded(object sender, RoutedEventArgs e)
+        {
+			th.Abort();
+			th1.Abort();
+			
+        }
+
+        private void resize(object sender, RoutedEventArgs e)
+        {
+			Button button = sender as Button;
+			DependencyObject sp2 = VisualTreeHelper.GetParent(button);
+			DependencyObject sp1 = VisualTreeHelper.GetParent(sp2);
+			DependencyObject sp0 = VisualTreeHelper.GetParent(sp1);
+			DependencyObject sp = VisualTreeHelper.GetParent(sp0);
+			DependencyObject spa = VisualTreeHelper.GetParent(sp);
+			DependencyObject spc = VisualTreeHelper.GetParent(spa);
+			if (Grid.GetRowSpan((IPCAMPLAYER)spc)!=1 & Grid.GetColumnSpan((IPCAMPLAYER)spc) != 1)
+            {
+				Grid.SetColumn((IPCAMPLAYER)spc, posc);
+				Grid.SetRow((IPCAMPLAYER)spc, posr);
+				Grid.SetColumnSpan((IPCAMPLAYER)spc, 1);
+				Grid.SetRowSpan((IPCAMPLAYER)spc, 1);
+			}
+			
+		}
+
+        private void allscrean(object sender, RoutedEventArgs e)
+        {
+            Button button = sender as Button;
+			DependencyObject sp2 = VisualTreeHelper.GetParent(button);
+			DependencyObject sp1 = VisualTreeHelper.GetParent(sp2);
+			DependencyObject sp0 = VisualTreeHelper.GetParent(sp1);
+			DependencyObject sp = VisualTreeHelper.GetParent(sp0);
+			DependencyObject spa = VisualTreeHelper.GetParent(sp);
+			DependencyObject spc = VisualTreeHelper.GetParent(spa);
+			if (Grid.GetRowSpan((IPCAMPLAYER)spc) == 1 & Grid.GetColumnSpan((IPCAMPLAYER)spc) == 1)
+			{
+			 	gridindex = Grid.GetZIndex((IPCAMPLAYER)spc);
+				posr = Grid.GetRow((IPCAMPLAYER)spc);
+				posc = Grid.GetColumn((IPCAMPLAYER)spc);
+				Grid.SetColumn((IPCAMPLAYER)spc, 0);
+				Grid.SetRow((IPCAMPLAYER)spc, 0);
+				Grid.SetColumnSpan((IPCAMPLAYER)spc, 2);
+				Grid.SetRowSpan((IPCAMPLAYER)spc, 2);
+			}
+		}
+    }
 }

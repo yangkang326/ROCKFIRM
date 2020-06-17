@@ -224,18 +224,18 @@ namespace ROCKFIRM
 			{
 				recorddata_a.chang_led1_status();
 			}
-			else
-			{
-				bool flag2 = recorddata_a.connect_client0();
-				if (flag2)
-				{
-					con1 = true;
-				}
-				else
-				{
-					con1 = false;
-				}
-			}
+			//else
+			//{
+			//	bool flag2 = recorddata_a.connect_client0();
+			//	if (flag2)
+			//	{
+			//		con1 = true;
+			//	}
+			//	else
+			//	{
+			//		con1 = false;
+			//	}
+			//}
 		}
 
 		private void led2_status_Click(object sender, RoutedEventArgs e)
@@ -245,27 +245,33 @@ namespace ROCKFIRM
 			{
 				recorddata_a.chang_led2_status();
 			}
-			else
-			{
-				bool flag2 = recorddata_a.connect_client0();
-				if (flag2)
-				{
-					con1 = true;
-				}
-				else
-				{
-					con1 = false;
-				}
-			}
+			//else
+			//{
+			//	bool flag2 = recorddata_a.connect_client0();
+			//	if (flag2)
+			//	{
+			//		con1 = true;
+			//	}
+			//	else
+			//	{
+			//		con1 = false;
+			//	}
+			//}
 		}
 		private void Window_Closed(object sender, EventArgs e)
 		{
+			
+		}
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
 			bool flag = exelcreated;
 			if (flag)
 			{
 				workbook.Write(fs);
 				fs.Close();
 			}
+			System.Environment.Exit(0);
 		}
     }
 }

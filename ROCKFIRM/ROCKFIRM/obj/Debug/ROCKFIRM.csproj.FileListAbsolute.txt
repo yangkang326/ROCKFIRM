@@ -35,4 +35,10 @@ D:\ROCKFIRM\ROCKFIRM\ROCKFIRM\obj\Debug\ROCKFIRM.csproj.CoreCompileInputs.cache
 D:\ROCKFIRM\ROCKFIRM\ROCKFIRM\obj\Debug\ROCKFIRM.csproj.CopyComplete
 D:\ROCKFIRM\ROCKFIRM\ROCKFIRM\obj\Debug\ROCKFIRM.exe
 D:\ROCKFIRM\ROCKFIRM\ROCKFIRM\obj\Debug\ROCKFIRM.pdb
+D:\ROCKFIRM\ROCKFIRM\ROCKFIRM\bin\Debug\MaterialDesignColors.dll
+D:\ROCKFIRM\ROCKFIRM\ROCKFIRM\bin\Debug\MaterialDesignThemes.Wpf.dll
+D:\ROCKFIRM\ROCKFIRM\ROCKFIRM\bin\Debug\MaterialDesignColors.pdb
+D:\ROCKFIRM\ROCKFIRM\ROCKFIRM\bin\Debug\MaterialDesignThemes.Wpf.pdb
+D:\ROCKFIRM\ROCKFIRM\ROCKFIRM\bin\Debug\MaterialDesignThemes.Wpf.xml
+D:\ROCKFIRM\ROCKFIRM\ROCKFIRM\obj\Debug\App.baml
 D:\ROCKFIRM\ROCKFIRM\ROCKFIRM\obj\Debug\ROCKFIRM.csprojAssemblyReference.cache
