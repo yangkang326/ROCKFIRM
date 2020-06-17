@@ -50,7 +50,7 @@ namespace ROCKFIRM
         public MainWindow()
         {
             InitializeComponent();
-            Int32 nRow = 0;
+
             recorddata recorddata = new recorddata();
             collect_timer = new DispatcherTimer();
             collect_timer.Interval = TimeSpan.FromMilliseconds(50);

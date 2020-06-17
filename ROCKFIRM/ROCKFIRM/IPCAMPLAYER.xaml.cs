@@ -53,9 +53,10 @@ namespace ROCKFIRM
 
         private Thread th;
 
-        private Thread th1;
+		private Thread th1;
+		private Thread th2;
 
-        private bool yorn;
+		private bool yorn;
 
         private string iptemp;
 		int posr, posc, gridindex;
@@ -69,6 +70,7 @@ namespace ROCKFIRM
 			control.BeginInit();
 			control.VlcLibDirectory = libDirectory;
 			control.EndInit();
+
 		}
 		private void Button_Click(object sender, RoutedEventArgs e)
 		{
@@ -105,7 +107,7 @@ namespace ROCKFIRM
 			}
 			catch
 			{
-				th1.Suspend();
+				th1.Abort();
 			}
 			combobox.SelectionChanged += new SelectionChangedEventHandler(listBox_SelectionChanged);
 			
@@ -295,7 +297,17 @@ namespace ROCKFIRM
 		{
 			address.Text = ipad;
 			svpath = location.Text;
+			th2 = new Thread(new ThreadStart(checkcontrolisplaying));
+			th2.Start();
 		}
+
+		private void checkcontrolisplaying()
+        {
+			recordcheckbox.Dispatcher.Invoke(new Action(() =>
+		   {
+			   recordcheckbox.IsEnabled = control.IsPlaying;
+		   }));
+        }
 
 		private void CheckBox_Checked(object sender, RoutedEventArgs e)
 		{
@@ -363,6 +375,7 @@ namespace ROCKFIRM
 				Grid.SetRow((IPCAMPLAYER)spc, posr);
 				Grid.SetColumnSpan((IPCAMPLAYER)spc, 1);
 				Grid.SetRowSpan((IPCAMPLAYER)spc, 1);
+				Grid.SetZIndex((IPCAMPLAYER)spc, 0);
 			}
 			
 		}
@@ -385,6 +398,7 @@ namespace ROCKFIRM
 				Grid.SetRow((IPCAMPLAYER)spc, 0);
 				Grid.SetColumnSpan((IPCAMPLAYER)spc, 2);
 				Grid.SetRowSpan((IPCAMPLAYER)spc, 2);
+				Grid.SetZIndex((IPCAMPLAYER)spc, 1);
 			}
 		}
     }
