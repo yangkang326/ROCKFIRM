@@ -75,13 +75,8 @@ namespace ROCKFIRM
 		private void Button_Click(object sender, RoutedEventArgs e)
 		{
 			iptemp = address.Text;
-			th1 = new Thread(new ThreadStart(contipcamera));
-			th1.Start();
-
-		}
-
-		private void contipcamera()
-        {
+			//th1 = new Thread(new ThreadStart(contipcamera));
+			//th1.Start();
 			try
 			{
 				Device.DeviceClient deviceClient = GetDeviceClient(iptemp);
@@ -107,9 +102,15 @@ namespace ROCKFIRM
 			}
 			catch
 			{
-				th1.Abort();
+				//th1.Abort();
 			}
 			combobox.SelectionChanged += new SelectionChangedEventHandler(listBox_SelectionChanged);
+
+		}
+
+		private void contipcamera()
+        {
+			
 			
 		}
 
@@ -139,6 +140,7 @@ namespace ROCKFIRM
 				stop_play.IsEnabled = true;
 				playingrui = uriBuilder.Uri;
 			}
+			recordcheckbox.IsEnabled = true;
 		}
 
 		private UriBuilder GetUri(string ip_port)
@@ -200,6 +202,7 @@ namespace ROCKFIRM
 		{
 			control.Stop();
 			stop_play.IsEnabled = false;
+
 			combobox.SelectedIndex = -1;
 		}
 
@@ -220,7 +223,7 @@ namespace ROCKFIRM
 				httpTransportBindingElement
 			});
 			PTZClient pTZClient = new PTZClient(binding, remoteAddress);
-			PasswordDigestBehavior item = new PasswordDigestBehavior("admin", "admin123");
+			PasswordDigestBehavior item = new PasswordDigestBehavior("admin", "tlJwpbo6");
 			pTZClient.Endpoint.Behaviors.Add(item);
 			return pTZClient;
 		}
@@ -241,7 +244,7 @@ namespace ROCKFIRM
 				httpTransportBindingElement
 			});
 			MediaClient mediaClient = new MediaClient(binding, remoteAddress);
-			PasswordDigestBehavior item = new PasswordDigestBehavior("admin", "admin123");
+			PasswordDigestBehavior item = new PasswordDigestBehavior("admin", "tlJwpbo6");
 			mediaClient.Endpoint.Behaviors.Add(item);
 			return mediaClient;
 		}
@@ -333,14 +336,10 @@ namespace ROCKFIRM
 				};
 				mediaplayer.SetMedia(playingrui, options);
 				bool flag = yorn;
-				if (flag)
-				{
+
 					mediaplayer.Play();
-				}
-				else
-				{
-					th.Interrupt();
-				}
+
+
 				isPlaying = control.IsPlaying;
 			}
 			mediaplayer.Stop();
