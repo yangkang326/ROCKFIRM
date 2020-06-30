@@ -133,8 +133,7 @@ namespace ROCKFIRM
                         fya = float.Parse(recorddata_a.fydeg);
                         fgb = -float.Parse(recorddata_a.fgdeg);
                         row.CreateCell(0).SetCellValue(DateTime.Now.ToString("yyyy-MM-dd") + "-" + DateTime.Now.ToString("hh:mm:ss"));
-                        row.CreateCell(1).SetCellValue(fya.ToString());
-                        row.CreateCell(2).SetCellValue(fgb.ToString());
+
                         if (recorddata_a.connectSuccess)
                         {
                             if (recorddata_a.fydeg != null & recorddata_a.fgdeg != null)
@@ -145,7 +144,7 @@ namespace ROCKFIRM
                                 "翻滚角"
                                 }, new float[]
                                 {
-                                fya,
+                                -fya,
                                 fgb
                                 });
 
@@ -154,8 +153,10 @@ namespace ROCKFIRM
                                 rotateTransform.Angle = (double)fgb;
                                 status.RenderTransform = rotateTransform;
                                 nRow++;
-                                fgd.Text = recorddata_a.fgdeg;
-                                fyd.Text = recorddata_a.fydeg;
+                                fgd.Text = (fgb).ToString();
+                                fyd.Text = (-fya).ToString();
+                                row.CreateCell(1).SetCellValue(fyd.Text);
+                                row.CreateCell(2).SetCellValue(fgd.Text);
                                 lsfy = fya;
                                 lsfg = fgb;
                             }

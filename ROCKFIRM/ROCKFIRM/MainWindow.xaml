@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ROCKFIRM"
         xmlns:WPF="clr-namespace:HslControls.WPF;assembly=HslControls"
         mc:Ignorable="d"
-        Title="ROCK_FIRM" MinWidth="1300" MinHeight="810" Height="810" Width="1300" Closing="Window_Closing" Icon="img/LOGO.png">
+        Title="ROCK_FIRM" MinWidth="1300" MinHeight="810" Height="810" Width="1300" Closing="Window_Closing" Icon="img/LOGO.png" WindowStartupLocation="CenterScreen" WindowState="Maximized">
     <Window.Background>
         <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ScrollBarColorKey}}" />
     </Window.Background>

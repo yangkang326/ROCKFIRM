@@ -39,22 +39,22 @@
         <WindowsFormsHost Name="videoplayer"  Margin="3" Grid.Row="1" Grid.ColumnSpan="8" MinHeight="300" />
         <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.ColumnSpan="8" Margin="1" HorizontalAlignment="Center">
             <StackPanel Orientation="Horizontal">
-                <Button Margin="5,0" Background="{x:Null}" Foreground="{x:Null}" BorderBrush="{x:Null}" Click="zoomin" Height="Auto">
+                <Button ToolTip="放大" Margin="5,0" Background="{x:Null}" Foreground="{x:Null}" BorderBrush="{x:Null}" Click="zoomin" Height="Auto">
                     <Image Source="img/Zoomin.png" />
                 </Button>
-                <Button  Click="Stop_zoom" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" Height="Auto">
+                <Button ToolTip="停止缩放"  Click="Stop_zoom" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" Height="Auto">
                     <Image Source="img/stop.png" />
                 </Button>
-                <Button Margin="5,0" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="zoomout" Height="Auto">
+                <Button ToolTip="缩小"  Margin="5,0" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="zoomout" Height="Auto">
                     <Image Source="img/Zoomout.png" />
                 </Button>
-                <Button Margin="5,0" Background="{x:Null}" Foreground="{x:Null}" BorderBrush="{x:Null}"  Height="Auto" Click="allscrean">
+                <Button ToolTip="全屏"  Margin="5,0" Background="{x:Null}" Foreground="{x:Null}" BorderBrush="{x:Null}"  Height="Auto" Click="allscrean">
                     <Image Source="img/ALLscrean.png" />
                 </Button>
-                <Button Margin="5,0" Background="{x:Null}" Foreground="{x:Null}" BorderBrush="{x:Null}"  Height="Auto" Click="resize">
+                <Button ToolTip="半屏"  Margin="5,0" Background="{x:Null}" Foreground="{x:Null}" BorderBrush="{x:Null}"  Height="Auto" Click="resize">
                     <Image Source="img/DEsize.png" />
                 </Button>
-                <Button Margin="5,0" Background="{x:Null}" Click="takesnap" BorderBrush="{x:Null}" Foreground="{x:Null}"  Height="Auto">
+                <Button ToolTip="截图"  Margin="5,0" Background="{x:Null}" Click="takesnap" BorderBrush="{x:Null}" Foreground="{x:Null}"  Height="Auto">
                     <Image Source="img/snap.png" />
                 </Button>
             </StackPanel>
