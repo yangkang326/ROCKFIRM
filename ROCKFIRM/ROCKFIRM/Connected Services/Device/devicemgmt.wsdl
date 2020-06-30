@@ -2494,7 +2494,7 @@
 				command. <br />
 				If system time and date are set manually, the client shall include UTCDateTime in the request.<br />
 				A TimeZone token which is not formed according to the rules of IEEE 1003.1 section 8.3 is considered as invalid timezone.<br />
-				The DayLightSavings flag should be set to true to activate any DST settings of the TimeZone string. 
+				The DayLightSavings flag should be set to true to activate any DST settings of the TimeZone string.
 				Clear the DayLightSavings flag if the DST portion of the TimeZone settings should be ignored.
 			</wsdl:documentation>
       <wsdl:input message="tds:SetSystemDateAndTimeRequest" />
@@ -2557,9 +2557,9 @@
       <wsdl:documentation>This operation requests the scope parameters of a device. The scope parameters are used in
 				the device discovery to match a probe message, see Section 7. The Scope parameters are of
 				two different types: <ul><li>Fixed</li><li>Configurable</li></ul>
-				Fixed scope parameters are permanent device characteristics and cannot be removed through the device management interface. 
-				The scope type is indicated in the scope list returned in the get scope parameters response. A device shall support 
-				retrieval of discovery scope parameters through the GetScopes command. As some scope parameters are mandatory, 
+				Fixed scope parameters are permanent device characteristics and cannot be removed through the device management interface.
+				The scope type is indicated in the scope list returned in the get scope parameters response. A device shall support
+				retrieval of discovery scope parameters through the GetScopes command. As some scope parameters are mandatory,
 				the device shall return a non-empty scope list in the response.</wsdl:documentation>
       <wsdl:input message="tds:GetScopesRequest" />
       <wsdl:output message="tds:GetScopesResponse" />
@@ -2667,7 +2667,7 @@
       <wsdl:output message="tds:GetUsersResponse" />
     </wsdl:operation>
     <wsdl:operation name="CreateUsers">
-      <wsdl:documentation>This operation creates new device users and corresponding credentials on a device for authentication purposes. 
+      <wsdl:documentation>This operation creates new device users and corresponding credentials on a device for authentication purposes.
 				The device shall support creation of device users and their credentials through the CreateUsers
 				command. Either all users are created successfully or a fault message shall be returned
 				without creating any user.<br />
@@ -2678,7 +2678,7 @@
       <wsdl:output message="tds:CreateUsersResponse" />
     </wsdl:operation>
     <wsdl:operation name="DeleteUsers">
-      <wsdl:documentation>This operation deletes users on a device. The device shall support deletion of device users and their credentials 
+      <wsdl:documentation>This operation deletes users on a device. The device shall support deletion of device users and their credentials
 				through the DeleteUsers command. A device may have one or more fixed users
 				that cannot be deleted to ensure access to the unit. Either all users are deleted successfully or a
 				fault message shall be returned and no users be deleted.</wsdl:documentation>
@@ -2687,7 +2687,7 @@
     </wsdl:operation>
     <wsdl:operation name="SetUser">
       <wsdl:documentation>This operation updates the settings for one or several users on a device for authentication purposes.
-				The device shall support update of device users and their credentials through the SetUser command. 
+				The device shall support update of device users and their credentials through the SetUser command.
 				Either all change requests are processed successfully or a fault message shall be returned and no change requests be processed.</wsdl:documentation>
       <wsdl:input message="tds:SetUserRequest" />
       <wsdl:output message="tds:SetUserResponse" />
@@ -2715,8 +2715,8 @@
     <wsdl:operation name="SetHostname">
       <wsdl:documentation>This operation sets the hostname on a device. It shall be possible to set the device hostname
 				configurations through the SetHostname command.<br />
-				A device shall accept string formated according to RFC 1123 section 2.1 or alternatively to RFC 952, 
-				other string shall be considered as invalid strings. 
+				A device shall accept string formated according to RFC 1123 section 2.1 or alternatively to RFC 952,
+				other string shall be considered as invalid strings.
 			</wsdl:documentation>
       <wsdl:input message="tds:SetHostnameRequest" />
       <wsdl:output message="tds:SetHostnameResponse" />
@@ -2747,7 +2747,7 @@
     <wsdl:operation name="SetNTP">
       <wsdl:documentation>This operation sets the NTP settings on a device. If the device supports NTP, it shall be
 				possible to set the NTP server settings through the SetNTP command.<br />
-				A device shall accept string formated according to RFC 1123 section 2.1 or alternatively to RFC 952, 
+				A device shall accept string formated according to RFC 1123 section 2.1 or alternatively to RFC 952,
 				other string shall be considered as invalid strings. <br />
 				Changes to the NTP server list will not affect the clock mode DateTimeType. Use SetSystemDateAndTime to activate NTP operation.
 			</wsdl:documentation>
@@ -2889,10 +2889,10 @@
       <wsdl:output message="tds:SetRelayOutputStateResponse" />
     </wsdl:operation>
     <wsdl:operation name="SendAuxiliaryCommand">
-      <wsdl:documentation>Manage auxiliary commands supported by a device, such as controlling an Infrared (IR) lamp, 
+      <wsdl:documentation>Manage auxiliary commands supported by a device, such as controlling an Infrared (IR) lamp,
 				a heater or a wiper or a thermometer that is connected to the device.<br />
 				The supported commands can be retrieved via the AuxiliaryCommands capability.<br />
-				Although the name of the auxiliary commands can be freely defined, commands starting with the prefix tt: are 
+				Although the name of the auxiliary commands can be freely defined, commands starting with the prefix tt: are
 				reserved to define frequently used commands and these reserved commands shall all share the "tt:command|parameter" syntax.
 				<ul><li>tt:Wiper|On – Request to start the wiper.</li><li>tt:Wiper|Off – Request to stop the wiper.</li><li>tt:Washer|On – Request to start the washer.</li><li>tt:Washer|Off – Request to stop the washer.</li><li>tt:WashingProcedure|On – Request to start the washing procedure.</li><li>tt: WashingProcedure |Off – Request to stop the washing procedure.</li><li>tt:IRLamp|On – Request to turn ON an IR illuminator attached to the unit.</li><li>tt:IRLamp|Off – Request to turn OFF an IR illuminator attached to the unit.</li><li>tt:IRLamp|Auto – Request to configure an IR illuminator attached to the unit so that it automatically turns ON and OFF.</li></ul>
 				A device that indicates auxiliary service capability shall support this command.</wsdl:documentation>
@@ -2964,14 +2964,14 @@
     </wsdl:operation>
     <wsdl:operation name="GetStorageConfigurations">
       <wsdl:documentation>
-			This operation lists all existing storage configurations for the device. 
+			This operation lists all existing storage configurations for the device.
 			</wsdl:documentation>
       <wsdl:input message="tds:GetStorageConfigurationsRequest" />
       <wsdl:output message="tds:GetStorageConfigurationsResponse" />
     </wsdl:operation>
     <wsdl:operation name="CreateStorageConfiguration">
       <wsdl:documentation>
-			This operation creates a new storage configuration. 
+			This operation creates a new storage configuration.
 			The configuration data shall be created in the device and shall be persistent (remain after reboot).
 			</wsdl:documentation>
       <wsdl:input message="tds:CreateStorageConfigurationRequest" />
@@ -3000,7 +3000,7 @@
     </wsdl:operation>
     <wsdl:operation name="GetGeoLocation">
       <wsdl:documentation>
-				This operation lists all existing geo location configurations for the device. 
+				This operation lists all existing geo location configurations for the device.
 			</wsdl:documentation>
       <wsdl:input message="tds:GetGeoLocationRequest" />
       <wsdl:output message="tds:GetGeoLocationResponse" />

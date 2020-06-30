@@ -83,12 +83,11 @@
     <xsd:restriction base="xsd:token">
       <xsd:annotation>
         <xsd:documentation>
-        TopicPathExpression  ::=   TopicPath ( '|' TopicPath )*  
-        TopicPath       ::=   RootTopic ChildTopicExpression* 
-        RootTopic       ::=   NamespacePrefix? ('//')? (NCName | '*')  
-        NamespacePrefix ::=   NCName ':'      
+        TopicPathExpression  ::=   TopicPath ( '|' TopicPath )*
+        TopicPath       ::=   RootTopic ChildTopicExpression*
+        RootTopic       ::=   NamespacePrefix? ('//')? (NCName | '*')
+        NamespacePrefix ::=   NCName ':'
         ChildTopicExpression ::=   '/' '/'? (QName | NCName | '*'| '.')
-                        
         </xsd:documentation>
       </xsd:annotation>
       <xsd:pattern value="([\i-[:]][\c-[:]]*:)?(//)?([\i-[:]][\c-[:]]*|\*)((/|//)(([\i-[:]][\c-[:]]*:)?[\i-[:]][\c-[:]]*|\*|[.]))*(\|([\i-[:]][\c-[:]]*:)?(//)?([\i-[:]][\c-[:]]*|\*)((/|//)(([\i-[:]][\c-[:]]*:)?[\i-[:]][\c-[:]]*|\*|[.]))*)*" />
@@ -99,10 +98,9 @@
       <xsd:annotation>
         <xsd:documentation>
   The pattern allows strings matching the following EBNF:
-    ConcreteTopicPath    ::=   RootTopic ChildTopic*    
-    RootTopic            ::=   QName  
-    ChildTopic           ::=   '/' (QName | NCName) 
-                        
+    ConcreteTopicPath    ::=   RootTopic ChildTopic*
+    RootTopic            ::=   QName
+    ChildTopic           ::=   '/' (QName | NCName)
         </xsd:documentation>
       </xsd:annotation>
       <xsd:pattern value="(([\i-[:]][\c-[:]]*:)?[\i-[:]][\c-[:]]*)(/([\i-[:]][\c-[:]]*:)?[\i-[:]][\c-[:]]*)*" />
@@ -113,8 +111,7 @@
       <xsd:annotation>
         <xsd:documentation>
   The pattern allows strings matching the following EBNF:
-    RootTopic            ::=   QName  
-                        
+    RootTopic            ::=   QName
         </xsd:documentation>
       </xsd:annotation>
     </xsd:restriction>
